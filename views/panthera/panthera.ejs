@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+     <div class="container">
+        <header class="jumbotron">
+            <div class= "container" id="panthera-page-container">
+                <% if (currentUser && currentUser.isAdmin === true) { %>
+                    <h2> Hey Admin! </h2>
+                <% } %>
+                <h1>This is the Panthera Page!</h1>
+                <p>Check out Cat pictures</p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="/panthera/new">Add A Panthera!!</a>
+                </p>
+            </div>
+        </header>
+        
+        
+        
+        <div class="row text-center" style="display:flex; flex-wrap:wrap; height:250px; width:100%;">
+            <% panthera.forEach(function(panthera){ %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail">
+                         <img src= "<%= panthera.image %>"> 
+                         <div class="caption">
+                            <h4> <%= panthera.name %> </h4>
+                         </div>
+                         <div>
+                            <form action="/panthera/<%=panthera._id%>" method="GET">
+                                  <button class="btn btn-primary">Show More</button>
+                            </form>
+                         </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    
+        
+        
+        
+    </div>
+<% include ../partials/footer %>

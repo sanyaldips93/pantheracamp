@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+    <div class="container text-center display-1">
+        <h2> Profile Details</h2>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-6">
+                <div class="thumbnail">
+					    <img src="<%= foundUser.image%>" class="img-responsive">
+					    <div class="caption-full text-center">
+                            <h4> Name : <%=foundUser.firstName%> <%=foundUser.lastName%></h4>
+                            <h4> About <%=foundUser.firstName%> : <%=foundUser.aboutMe%> </h4>
+                            <h4> <em> Contact : </em> <a href="mailto:<%=foundUser.email%>"><%=foundUser.email%></a> </h4>
+                            <% if (currentUser && foundUser._id.equals(currentUser._id) || (currentUser && currentUser.isAdmin)) {%>
+                            <a class="btn btn-md btn-primary" href="/user/<%= foundUser._id %>/edit">Edit Details</a>
+                            <form id="delete-form" action="/user/<%=foundUser._id%>?_method=DELETE" method="POST">
+                                  <button class="btn btn-md btn-danger">Delete User</button>
+                            </form>
+                            <% } %>
+                       </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <div class="caption-full">
+                        <h3 class="text-center">Posts by <%=foundUser.username%></h3>
+                        <% panthera.forEach(function(pantheras){ %>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="/panthera/<%=pantheras._id %>"> <%=pantheras.name %> </a></li>
+                        </ul>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+<% include ../partials/footer %>

@@ -1,0 +1,45 @@
+
+
+.thumbnail img{
+    width:100%;
+}
+
+.thumbnail{
+     padding : 0;
+}
+
+.thumbnail .caption-full {
+    padding : 9px;
+}
+
+#delete-form{
+    display: inline;
+}
+
+#panthera-page-container{
+    text-align: center;
+}
+
+.jumbotron {
+    background-image: url(http://pi-ltsp.net/images/desktop-background.png);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+/*hr .comment{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0; 
+}*/
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
